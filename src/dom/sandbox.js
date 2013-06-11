@@ -137,6 +137,13 @@
         }
       };
 
+			iframe.addEventListener("DOMContentLoaded", function() {
+        if (!that.loaded) {
+          iframe.onload = iframe.onreadystatechange = null;
+          that._onLoadIframe(iframe);
+        }
+      }, false);
+
       return iframe;
     },
 

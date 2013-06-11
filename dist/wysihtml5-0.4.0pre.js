@@ -5485,6 +5485,13 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
           that._onLoadIframe(iframe);
         }
       };
+			iframe.addEventListener("DOMContentLoaded", function() {
+        if (!that.loaded) {
+          iframe.onload = iframe.onreadystatechange = null;
+          that._onLoadIframe(iframe);
+        }
+      }, false);
+      
 
       return iframe;
     },
@@ -7993,7 +8000,7 @@ wysihtml5.views.View = Base.extend(
       
       var textareaElement = this.textarea.element;
       dom.insert(this.iframe).after(textareaElement);
-      
+
       // Create hidden field which tells the server after submit, that the user used an wysiwyg editor
       if (textareaElement.form) {
         var hiddenField = document.createElement("input");
