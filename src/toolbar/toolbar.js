@@ -98,6 +98,10 @@
           that.editor.focus(false);
           that.editor.fire("cancel:dialog", { command: command, dialogContainer: dialogElement, commandLink: link });
         });
+
+        dialog.on("hide", function() {
+          that.editor.fire("hide:dialog", {command: command, dialogContainer: dialogElement, commandLink: link });
+        });
       }
       return dialog;
     },
