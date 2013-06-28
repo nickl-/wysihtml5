@@ -19,7 +19,18 @@ wysihtml5.views.Textarea = wysihtml5.views.View.extend(
     }
     return value;
   },
-  
+  prependValue: function(html, parse) {
+    if (parse) {
+      html = this.parent.parse(html);
+    }
+    this.element.value = html+this.element.value
+  },
+  appendValue: function(node) {
+    if (parse) {
+      html = this.parent.parse(html);
+    }
+    this.element.value = this.element.value+html
+  },
   setValue: function(html, parse) {
     if (parse) {
       html = this.parent.parse(html);
