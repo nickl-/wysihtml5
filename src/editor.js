@@ -124,6 +124,16 @@
       return this;
     },
 
+    prependValue: function(html, parse) {
+      this.currentView.prependValue(html, parse);
+      return this;
+    },
+
+    appendValue: function(node) {
+      this.currentView.appendValue(html, parse);
+      return this;
+    },
+
     focus: function(setToEnd) {
       this.currentView.focus(setToEnd);
       return this;

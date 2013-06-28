@@ -19,7 +19,28 @@ wysihtml5.views.Textarea = wysihtml5.views.View.extend(
     }
     return value;
   },
-  
+  prependValue: function(html, parse) {
+    if (parse) {
+      html = this.parent.parse(html);
+    }
+    var wrapper = this.doc.createElement('div');
+    wrapper.innerHTML = html;
+
+    for (var i = (wrapper.childNodes.length-1); i >= 0; i--) {
+      this.element.insertBefore(wrapper.childNodes[i], this.element.firstChild );
+    }
+  },
+  appendValue: function(node) {
+    if (parse) {
+      html = this.parent.parse(html);
+    }
+    var wrapper = this.doc.createElement('div');
+    wrapper.innerHTML = html;
+
+    for (var i = 0; i < wrapper.childNodes.length; i++) {
+      this.element.appendChild(wrapper.childNodes[i]);
+    }
+  },
   setValue: function(html, parse) {
     if (parse) {
       html = this.parent.parse(html);
