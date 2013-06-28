@@ -23,23 +23,13 @@ wysihtml5.views.Textarea = wysihtml5.views.View.extend(
     if (parse) {
       html = this.parent.parse(html);
     }
-    var wrapper = this.doc.createElement('div');
-    wrapper.innerHTML = html;
-
-    for (var i = (wrapper.childNodes.length-1); i >= 0; i--) {
-      this.element.insertBefore(wrapper.childNodes[i], this.element.firstChild );
-    }
+    this.element.value = html+this.element.value
   },
   appendValue: function(node) {
     if (parse) {
       html = this.parent.parse(html);
     }
-    var wrapper = this.doc.createElement('div');
-    wrapper.innerHTML = html;
-
-    for (var i = 0; i < wrapper.childNodes.length; i++) {
-      this.element.appendChild(wrapper.childNodes[i]);
-    }
+    this.element.value = this.element.value+html
   },
   setValue: function(html, parse) {
     if (parse) {
