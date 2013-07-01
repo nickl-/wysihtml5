@@ -134,6 +134,11 @@
       return this;
     },
 
+    replaceValue: function(a, b) {
+      this.currentView.replaceValue(a, b);
+      return this;
+    },
+
     focus: function(setToEnd) {
       this.currentView.focus(setToEnd);
       return this;

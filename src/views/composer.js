@@ -62,6 +62,12 @@
         this.element.appendChild(wrapper.childNodes[i]);
       }
     },
+    replaceValue: function(a, b) {
+      var element = this.element;
+      this.selection.executeAndRestore(function() {
+        element.innerHTML = element.innerHTML.replace(regex, replace);
+      });
+    },
     show: function() {
       this.iframe.style.display = this._displayStyle || "";
       

@@ -31,6 +31,9 @@ wysihtml5.views.Textarea = wysihtml5.views.View.extend(
     }
     this.element.value = this.element.value+html
   },
+  replaceValue: function(a, b) {
+    this.element.value = this.element.value.replace(a, b);
+  },
   setValue: function(html, parse) {
     if (parse) {
       html = this.parent.parse(html);
