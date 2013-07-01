@@ -51,7 +51,7 @@
         this.element.insertBefore(wrapper.childNodes[i], this.element.firstChild );
       }
     },
-    appendValue: function(node) {
+    appendValue: function(html, parse) {
       if (parse) {
         html = this.parent.parse(html);
       }
@@ -61,6 +61,12 @@
       for (var i = 0; i < wrapper.childNodes.length; i++) {
         this.element.appendChild(wrapper.childNodes[i]);
       }
+    },
+    replaceValue: function(a, b) {
+      var element = this.element;
+      this.selection.executeAndRestore(function() {
+        element.innerHTML = element.innerHTML.replace(regex, replace);
+      });
     },
     show: function() {
       this.iframe.style.display = this._displayStyle || "";

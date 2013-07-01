@@ -25,11 +25,14 @@ wysihtml5.views.Textarea = wysihtml5.views.View.extend(
     }
     this.element.value = html+this.element.value
   },
-  appendValue: function(node) {
+  appendValue: function(html, parse) {
     if (parse) {
       html = this.parent.parse(html);
     }
     this.element.value = this.element.value+html
+  },
+  replaceValue: function(a, b) {
+    this.element.value = this.element.value.replace(a, b);
   },
   setValue: function(html, parse) {
     if (parse) {

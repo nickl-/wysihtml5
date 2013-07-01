@@ -125,8 +125,13 @@
       return this;
     },
 
-    appendValue: function(node) {
+    appendValue: function(html, parse) {
       this.currentView.appendValue(html, parse);
+      return this;
+    },
+
+    replaceValue: function(a, b) {
+      this.currentView.replaceValue(a, b);
       return this;
     },
 
