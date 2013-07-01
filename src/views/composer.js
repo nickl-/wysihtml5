@@ -51,7 +51,7 @@
         this.element.insertBefore(wrapper.childNodes[i], this.element.firstChild );
       }
     },
-    appendValue: function(node) {
+    appendValue: function(html, parse) {
       if (parse) {
         html = this.parent.parse(html);
       }
