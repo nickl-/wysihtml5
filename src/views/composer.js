@@ -65,7 +65,7 @@
     replaceValue: function(a, b) {
       var element = this.element;
       this.selection.executeAndRestore(function() {
-        element.innerHTML = element.innerHTML.replace(regex, replace);
+        element.innerHTML = element.innerHTML.replace(a, b);
       });
     },
     show: function() {
